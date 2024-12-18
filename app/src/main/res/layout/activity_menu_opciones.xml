@@ -6,5 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Menu_Opciones">
+    <include
+        android:id="@+id/includetoolbar"
+
+
+        layout="@layout/toolbar"
+        ></include>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
