@@ -17,6 +17,7 @@ class Menu_Opciones : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        setSupportActionBar(findViewById(R.id.my_toolbar))
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
