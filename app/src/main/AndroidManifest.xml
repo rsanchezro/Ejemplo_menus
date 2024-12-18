@@ -13,6 +13,12 @@
         android:theme="@style/Theme.Ejemplo_menus"
         tools:targetApi="31">
         <activity
+            android:name=".Menu_AccionContextual"
+            android:exported="false" />
+        <activity
+            android:name=".Menu_Contextual"
+            android:exported="false" />
+        <activity
             android:name=".Menu_Opciones"
             android:exported="false" />
         <activity

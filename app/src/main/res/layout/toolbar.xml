@@ -9,7 +9,6 @@
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
         android:elevation="4dp"
-
         >
 
     </androidx.appcompat.widget.Toolbar>

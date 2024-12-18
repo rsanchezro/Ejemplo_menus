@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".Menu_Opciones">
+   >
     <item android:id="@+id/action_search"
         android:title="busqueda"
         android:icon="@drawable/ic_search_black_24dp"
@@ -12,10 +12,14 @@
         android:id="@+id/app_bar_switch"
         android:title="Switch"
         app:actionLayout="@layout/switch_item"
-        app:showAsAction="always" />
+        app:showAsAction="always"
+
+         />
     <item
         android:title="Opcion1"
+        android:onClick="pulsa_opcion1"
 
         />
     <item android:title="Salir" />
+
 </menu>

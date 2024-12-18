@@ -1,36 +1,35 @@
 package com.example.ejemplo_menus
 
-import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
+import android.view.ContextMenu
+import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import com.example.ejemplo_menus.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
-    lateinit var mibinding:ActivityMainBinding
+class Menu_Contextual : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        mibinding=ActivityMainBinding.inflate(layoutInflater)
-        setContentView(mibinding.root)
+        setContentView(R.layout.activity_menu_contextual)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        mibinding.button.setOnClickListener {
-            val miIntent= Intent(this,Menu_Opciones::class.java)
-            startActivity(miIntent)
-        }
-        mibinding.button2.setOnClickListener {
-            val miIntent= Intent(this,Menu_Contextual::class.java)
-            startActivity(miIntent)
-        }
+        //Asocio al editText el menu contextual
+        registerForContextMenu(findViewById(R.id.editTextText))
     }
 
-
-
+    override fun onCreateContextMenu(
+        menu: ContextMenu?,
+        v: View?,
+        menuInfo: ContextMenu.ContextMenuInfo?
+    ) {
+        //Invocación al metodo de la superclase que vincula la vista con el menu
+        super.onCreateContextMenu(menu, v, menuInfo)
+        //Inflamos el menu
+        menuInflater.inflate(R.menu.menu_contextual,menu)
+    }
 }
