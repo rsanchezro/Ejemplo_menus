@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.EditText
+import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.view.ActionMode
@@ -11,10 +12,12 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class Menu_AccionContextual : AppCompatActivity() {
-
+//1er paso
  var miactionMode: ActionMode?=null
  lateinit var mieditText:EditText
-
+ lateinit var mitextView:TextView
+ var textocopiar:String=""
+//2º Paso
     private val actionModecallback= object : ActionMode.Callback {
         // Invocado cuando el ActionMode se crea; se invocó a startActionMode()
         override fun onCreateActionMode(mode: ActionMode?, menu: Menu?): Boolean {
@@ -37,10 +40,16 @@ class Menu_AccionContextual : AppCompatActivity() {
 
              return   when(item?.itemId) {
 
-                 R.id.pegar-> //Aqui pego el texto que tenia guardado en el TextView
+                 R.id.pegar-> {
+                     //Aqui pego el texto que tenia guardado en el TextView
+                     mitextView.text=textocopiar
                      true
-                 R.id.copiar->//Aqui copio el texto del EditText
+                 }
+                 R.id.copiar->
+                     {
+                     textocopiar=mieditText.text.toString()
                      true
+                 }
                  R.id.salir->{//Salgo del menu
                             mode?.finish()
                             true
@@ -74,6 +83,7 @@ class Menu_AccionContextual : AppCompatActivity() {
 
         //Establezco el menu de acción contextual cuando hago pulsación larga sobre el editText
         mieditText=findViewById(R.id.editText)
+        mitextView=findViewById(R.id.texto2)
         mieditText.setOnLongClickListener {
             when(miactionMode) {
              null -> {//Abro el menu

@@ -29,6 +29,10 @@ class MainActivity : AppCompatActivity() {
             val miIntent= Intent(this,Menu_Contextual::class.java)
             startActivity(miIntent)
         }
+        mibinding.button3.setOnClickListener {
+            val miIntent= Intent(this,Menu_AccionContextual::class.java)
+            startActivity(miIntent)
+        }
     }
 
 

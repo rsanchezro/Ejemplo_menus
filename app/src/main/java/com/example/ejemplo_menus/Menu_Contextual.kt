@@ -2,6 +2,7 @@ package com.example.ejemplo_menus
 
 import android.os.Bundle
 import android.view.ContextMenu
+import android.view.MenuItem
 import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -32,4 +33,6 @@ class Menu_Contextual : AppCompatActivity() {
         //Inflamos el menu
         menuInflater.inflate(R.menu.menu_contextual,menu)
     }
+
+
 }

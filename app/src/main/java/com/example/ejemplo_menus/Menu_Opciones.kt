@@ -7,10 +7,12 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class Menu_Opciones : AppCompatActivity() {
+    lateinit var mitoolbar:Toolbar
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -20,24 +22,49 @@ class Menu_Opciones : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+        mitoolbar=findViewById(R.id.my_toolbar)
+        mitoolbar.setLogo(R.drawable.baseline_adb_24)
         //Para establecer el toolbar
         setSupportActionBar(findViewById(R.id.my_toolbar))
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
 
-        menuInflater.inflate(R.menu.menu_opciones,menu)
+        menuInflater.inflate(R.menu.menu_opciones, menu)
         return true
     }
-   public fun pulsa_opcion1(m:MenuItem)
-    {
-        var mialertBuilder=AlertDialog.Builder(this)
+
+
+    public fun pulsa_opcion1(m: MenuItem) {
+        var mialertBuilder = AlertDialog.Builder(this)
         mialertBuilder.setMessage("Has pulsado la opcion ${m.title}")
             .setTitle("Mensaje")
-            .setPositiveButton("Ok"){d,w->
+            .setPositiveButton("Ok") { d, w ->
                 //No se hace nada
             }
-        val dialog=mialertBuilder.create()
+        val dialog = mialertBuilder.create()
         dialog.show()
     }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        super.onOptionsItemSelected(item)
+        when (item.itemId) {
+            R.id.acerca_de -> {
+                var mialertBuilder = AlertDialog.Builder(this)
+                mialertBuilder.setMessage("V1.0 Aplicacion desarrollado por roberto_dev")
+                    .setTitle("Acerca de")
+                    .setPositiveButton("Ok") { d, w ->
+                        //No se hace nada
+                    }
+                val dialog = mialertBuilder.create()
+                dialog.show()
+                return true
+            }
+            else->
+                return false
+
+        }
+
+    }
 }
+
